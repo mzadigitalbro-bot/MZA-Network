@@ -13,19 +13,26 @@ document.addEventListener('DOMContentLoaded', function () {
     if(nav) nav.classList.toggle('open');
   });
 
-  // Simple form handling: prevent default and show a success state
+  // Simple form handling: show a success state for AJAX forms; allow normal submit otherwise
   var form = document.querySelector('form');
   if(form){
     form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      if(btn){
-        var old = btn.textContent;
-        btn.textContent = 'Отправлено!';
-        btn.disabled = true;
-        setTimeout(function(){ btn.textContent = old; btn.disabled = false; form.reset(); }, 1800);
+      var isAjax = form.hasAttribute('data-ajax') || form.dataset.ajax === 'true';
+      if(isAjax){
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if(btn){
+          var old = btn.textContent;
+          btn.textContent = 'Отправлено!';
+          btn.disabled = true;
+          setTimeout(function(){ btn.textContent = old; btn.disabled = false; form.reset(); }, 1800);
+        } else {
+          alert('Спасибо — мы свяжемся с вами.');
+        }
       } else {
-        alert('Спасибо — мы свяжемся с вами.');
+        // allow normal form submission; disable submit button briefly to avoid double-submit
+        var btn = form.querySelector('button[type="submit"]');
+        if(btn){ btn.disabled = true; }
       }
     });
   }
