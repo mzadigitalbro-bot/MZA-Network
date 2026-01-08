@@ -16,13 +16,39 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', function (e) {
-      // не делаем e.preventDefault()
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.disabled = true; // чтобы избежать двойного submit
+      e.preventDefault();
+
+      var formData = new FormData(form);
+      var data = new URLSearchParams();
+
+      for (const pair of formData) {
+        data.append(pair[0], pair[1]);
       }
+
+      fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data.toString()
+      })
+        .then(() => {
+          var btn = form.querySelector('button[type="submit"]');
+          if (btn) {
+            var old = btn.textContent;
+            btn.textContent = 'Отправлено!';
+            btn.disabled = true;
+            setTimeout(function () {
+              btn.textContent = old;
+              btn.disabled = false;
+              form.reset();
+            }, 1800);
+          }
+        })
+        .catch(err => console.error(err));
     });
   }
+
 
 
 
