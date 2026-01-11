@@ -88,25 +88,3 @@ document.addEventListener('DOMContentLoaded', function () {
     nodes.forEach(function (n) { io.observe(n); });
   })();
 });
-
-document.getElementById("leadForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    // Получаем токен v3
-    const token = await grecaptcha.execute('6LcRYkcsAAAAAAKo-mPX_g-XwsK0U4CPEW2HMKbp', {action: 'submit'});
-    
-    const formData = new FormData(this);
-    formData.append("g-recaptcha-response", token);
-
-    const response = await fetch("https://n8n.mzanetwork.com/webhook-test/form-contact", {
-        method: "POST",
-        body: formData
-    });
-
-    if(response.ok){
-        alert("Форма успешно отправлена!");
-        this.reset();
-    } else {
-        alert("Ошибка при отправке формы.");
-    }
-});
