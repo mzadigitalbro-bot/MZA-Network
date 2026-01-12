@@ -89,6 +89,38 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 });
 
-   function onSubmit(token) {
-     document.getElementById("contactForm").submit();
-   } // Use `requestSubmit()` for extra features like browser input validation.
+ document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Проверка...';
+
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', { action: 'form_contact' })
+      .then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+
+        // Отправка формы через fetch
+        var formData = new FormData(form);
+        var data = new URLSearchParams();
+        for (const pair of formData) data.append(pair[0], pair[1]);
+
+        fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString()
+        })
+        .then(() => {
+          btn.textContent = 'Отправлено!';
+          setTimeout(() => { btn.textContent = 'Отправить'; btn.disabled = false; form.reset(); }, 1500);
+        })
+        .catch(err => { console.error(err); btn.disabled = false; btn.textContent = 'Ошибка'; });
+      });
+    });
+  });
+});
