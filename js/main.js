@@ -50,51 +50,55 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 
   // --- Form submission with reCAPTCHA ---
- 
-  form.addEventListener("submit", function(e) {
-  e.preventDefault();
+  var form = document.getElementById("contactForm");
+  
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  var btn = form.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Проверка...';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Проверка...';
 
-  // Проверяем, что grecaptcha загружена
-  if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
-    console.error('reCAPTCHA не загружена');
-    btn.textContent = 'Ошибка загрузки';
-    btn.disabled = false;
-    return;
-  }
-
-  grecaptcha.enterprise.ready(function() {
-    grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
-      action: 'form_contact'
-    }).then(function(token) {
-      document.getElementById('g-recaptcha-response').value = token;
-
-      var formData = new FormData(form);
-      fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
-        method: 'POST',
-        body: formData
-      }).then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        btn.textContent = 'Отправлено!';
-        setTimeout(() => { 
-          btn.textContent = 'Отправить'; 
-          btn.disabled = false; 
-          form.reset(); 
-        }, 1500);
-      }).catch(err => {
-        console.error('Fetch error:', err);
-        btn.textContent = 'Ошибка';
+      // Проверяем, что grecaptcha загружена
+      if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
+        console.error('reCAPTCHA не загружена');
+        btn.textContent = 'Ошибка загрузки';
         btn.disabled = false;
+        return;
+      }
+
+      grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
+          action: 'form_contact'
+        }).then(function(token) {
+          document.getElementById('g-recaptcha-response').value = token;
+
+          var formData = new FormData(form);
+          fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
+            method: 'POST',
+            body: formData
+          }).then(function(response) {
+            return response.json();
+          }).then(function(data) {
+            console.log('Success:', data);
+            btn.textContent = 'Отправлено!';
+            setTimeout(function() { 
+              btn.textContent = 'Отправить'; 
+              btn.disabled = false; 
+              form.reset(); 
+            }, 1500);
+          }).catch(function(err) {
+            console.error('Fetch error:', err);
+            btn.textContent = 'Ошибка';
+            btn.disabled = false;
+          });
+        }).catch(function(err) {
+          console.error('reCAPTCHA error:', err);
+          btn.textContent = 'Ошибка';
+          btn.disabled = false;
+        });
       });
-    }).catch(function(err) {
-      console.error('reCAPTCHA error:', err);
-      btn.textContent = 'Ошибка';
-      btn.disabled = false;
     });
-  });
-});
+  }
 });
