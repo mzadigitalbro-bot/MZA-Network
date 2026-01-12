@@ -50,42 +50,37 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 
   // --- Form submission with reCAPTCHA ---
+ 
   var form = document.getElementById("contactForm");
-  if (!form) return; // ✅ return внутри функции
+  if (!form) return;
 
   form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    e.preventDefault(); // не отправляем сразу форму
 
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.textContent = 'Проверка...';
 
-    // --- reCAPTCHA v3 ---
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', { action: 'form_contact' })
-      .then(function(token) {
+    // вызываем reCAPTCHA Enterprise
+    grecaptcha.enterprise.ready(function() {
+      grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
+        action: 'form_contact'  // любая метка действия
+      }).then(function(token) {
         // записываем токен в скрытое поле
         document.getElementById('g-recaptcha-response').value = token;
 
-        // собираем данные формы
+        // теперь можно отправить форму через fetch или обычный submit
         var formData = new FormData(form);
-        var data = new URLSearchParams();
-        for (const pair of formData) data.append(pair[0], pair[1]);
-
-        // отправка fetch
         fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: data.toString()
-        })
-        .then(() => {
+          body: formData
+        }).then(() => {
           btn.textContent = 'Отправлено!';
           setTimeout(() => { btn.textContent = 'Отправить'; btn.disabled = false; form.reset(); }, 1500);
-        })
-        .catch(err => {
+        }).catch(err => {
           console.error(err);
-          btn.disabled = false;
           btn.textContent = 'Ошибка';
+          btn.disabled = false;
         });
       });
     });
