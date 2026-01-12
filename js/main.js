@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   console.log('Site loaded');
 
-  // Navigation toggle for mobile
+  // --- Navigation toggle for mobile ---
   var nav = document.querySelector('nav');
   var toggle = document.createElement('button');
   toggle.className = 'nav-toggle';
@@ -13,46 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nav) nav.classList.toggle('open');
   });
 
-  var form = document.querySelector('form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var formData = new FormData(form);
-      var data = new URLSearchParams();
-
-      for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-      }
-
-      fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data.toString()
-      })
-        .then(() => {
-          var btn = form.querySelector('button[type="submit"]');
-          if (btn) {
-            var old = btn.textContent;
-            btn.textContent = 'Отправлено!';
-            btn.disabled = true;
-            setTimeout(function () {
-              btn.textContent = old;
-              btn.disabled = false;
-              form.reset();
-            }, 1800);
-          }
-        })
-        .catch(err => console.error(err));
-    });
-  }
-
-
-
-
-  // Smooth anchor scrolling fallback and history handling
+  // --- Smooth anchor scrolling fallback ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var href = this.getAttribute('href');
@@ -69,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Scroll reveal using IntersectionObserver
+  // --- Scroll reveal using IntersectionObserver ---
   (function () {
     var selector = 'header, .hero, .services, .services .card, .portfolio, .project, .about, .contacts, footer';
     var nodes = Array.prototype.slice.call(document.querySelectorAll(selector));
@@ -87,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     nodes.forEach(function (n) { io.observe(n); });
   })();
-});
 
+  // --- Form submission with reCAPTCHA ---
   var form = document.getElementById("contactForm");
-  if (!form) return;
+  if (!form) return; // ✅ return внутри функции
 
   form.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -99,16 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled = true;
     btn.textContent = 'Проверка...';
 
+    // --- reCAPTCHA v3 ---
     grecaptcha.ready(function() {
       grecaptcha.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', { action: 'form_contact' })
       .then(function(token) {
+        // записываем токен в скрытое поле
         document.getElementById('g-recaptcha-response').value = token;
 
-        // Отправка формы через fetch
+        // собираем данные формы
         var formData = new FormData(form);
         var data = new URLSearchParams();
         for (const pair of formData) data.append(pair[0], pair[1]);
 
+        // отправка fetch
         fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -118,7 +82,12 @@ document.addEventListener('DOMContentLoaded', function () {
           btn.textContent = 'Отправлено!';
           setTimeout(() => { btn.textContent = 'Отправить'; btn.disabled = false; form.reset(); }, 1500);
         })
-        .catch(err => { console.error(err); btn.disabled = false; btn.textContent = 'Ошибка'; });
+        .catch(err => {
+          console.error(err);
+          btn.disabled = false;
+          btn.textContent = 'Ошибка';
+        });
       });
     });
   });
+});
