@@ -89,16 +89,54 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 });
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById("contactForm");
+  if (!form) return;
 
-  grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
-    action: "https://n8n.mzanetwork.com/webhook/form-contact"
-  }).then(function(token) {
+  // Блокируем кнопку до получения токена
+  var submitBtn = form.querySelector('button[type="submit"]');
+  
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // ❌ отменяем обычный submit
 
-    document.getElementById('g-recaptcha-response').value = token;
+    if (!submitBtn) return;
 
-    e.target.submit();
+    submitBtn.disabled = true; // блокируем кнопку сразу
+    submitBtn.textContent = 'Проверка...';
+
+    // Генерируем reCAPTCHA token
+    grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
+      action: "https://n8n.mzanetwork.com/webhook/form-contact"
+    }).then(function(token) {
+
+      document.getElementById('g-recaptcha-response').value = token;
+
+      // Теперь отправляем форму через fetch
+      var formData = new FormData(form);
+      var data = new URLSearchParams();
+      for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+      }
+
+      fetch('https://n8n.mzanetwork.com/webhook/form-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(() => {
+        submitBtn.textContent = 'Отправлено!';
+        setTimeout(function () {
+          submitBtn.textContent = 'Отправить';
+          submitBtn.disabled = false;
+          form.reset();
+        }, 1800);
+      })
+      .catch(err => {
+        console.error(err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Ошибка! Попробуйте ещё раз';
+      });
+    });
   });
 });
 
