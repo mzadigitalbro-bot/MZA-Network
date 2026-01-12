@@ -106,8 +106,13 @@
       <p>© 2026 MZA Network. Все права защищены.</p>
     </div>
   </footer>
-
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL&onload=onRecaptchaLoad"></script>
+  <script>
+    window.onRecaptchaLoad = function() {
+      window.recaptchaReady = true;
+      console.log('reCAPTCHA loaded');
+    };
+  </script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL&onload=onRecaptchaLoad"></script>
 
   <script src="js/main.js"></script>
 </body>
