@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MZA Network</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL"></script>
   <header>
     <div class="container">
       <a class="logo" href="#home">MZA Network</a>
@@ -96,10 +97,12 @@
           <textarea style="resize: none;" rows="10" cols="50" id="message" name="message" rows="5" required></textarea>
         </div>
         <br>
-        <div class="g-recaptcha" data-sitekey="6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO" data-action="LOGIN"></div>
+         <div class="g-recaptcha" data-sitekey="6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL" data-action="LOGIN"></div>
         <br/>
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-        <button type="submit">Отправить</button>
+        <button class="g-recaptcha"
+            data-sitekey="6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL"
+            data-callback="onSubmit"
+            data-action="submit">Submit</button>
       </form>
     </section>
   </main>
