@@ -93,11 +93,12 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
-    action: 'https://n8n.mzanetwork.com/webhook/form-contact'
+    action: 'form_contact'
   }).then(function(token) {
 
     document.getElementById('g-recaptcha-response').value = token;
 
-    document.getElementById("contactForm").submit();
+    e.target.submit();
   });
 });
+
