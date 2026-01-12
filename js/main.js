@@ -105,9 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.textContent = 'Проверка...';
 
     // Генерируем reCAPTCHA token
-    grecaptcha.enterprise.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', {
-      action: "https://n8n.mzanetwork.com/webhook/form-contact"
-    }).then(function(token) {
+    grecaptcha.execute('6Lc0xEcsAAAAADB1BXoNUKTUB8MhIhiWtgu-otGO', { action: 'https://n8n.mzanetwork.com/webhook/form-contact' })
+      .then(function(token) {
 
       document.getElementById('g-recaptcha-response').value = token;
 
