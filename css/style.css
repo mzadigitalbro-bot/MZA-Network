@@ -67,6 +67,18 @@ nav a:hover{color:#fff;background:var(--glass);transform:translateY(-2px)}
 .project .thumb{height:140px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(96,165,250,0.12), rgba(94,234,212,0.06));color:var(--muted);font-weight:600}
 .project figcaption{padding:12px;color:var(--muted);font-size:0.95rem}
 
+/* Portfolio card specifics */
+.portfolio-card{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:var(--radius);min-height:200px}
+.portfolio-card h3{margin:0 0 6px;color:#fff;font-size:1.05rem}
+.ps{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.4}
+.tech-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tech-list li{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:0.85rem;border:1px solid rgba(255,255,255,0.02)}
+
+/* Language switcher */
+.lang-switch{margin-left:12px;display:flex;gap:8px;align-items:center}
+.lang-switch button{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer}
+.lang-switch button.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202b;border-color:transparent}
+
 .about{padding:56px 0}
 .about p{max-width:900px;color:var(--muted)}
 
