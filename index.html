@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MZA Network</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <header>
     <div class="container">
       <a class="logo" href="#home">MZA Network</a>
       <nav>
         <ul>
-          <li><a href="#home"><i class="nav-icon fa-solid fa-house" aria-hidden="true"></i>Главная</a></li>
-          <li><a href="#services"><i class="nav-icon fa-solid fa-desktop" aria-hidden="true"></i>Услуги</a></li>
-          <li><a href="#portfolio"><i class="nav-icon fa-solid fa-th-large" aria-hidden="true"></i>Портфолио</a></li>
-          <li><a href="#about"><i class="nav-icon fa-solid fa-link" aria-hidden="true"></i>О нас</a></li>
-          <li><a href="#contacts"><i class="nav-icon fa-solid fa-envelope" aria-hidden="true"></i>Контакты</a></li>
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#portfolio">Портфолио</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#contacts">Контакты</a></li>
         </ul>
       </nav>
       <div class="lang-switch">
@@ -25,16 +24,12 @@
     </div>
   </header>
 
-  <!-- Font Awesome used for monochrome icons -->
-
   <main>
     <section id="home" class="hero">
       <div class="container">
-        <div class="hero-copy">
-          <h1>MZA Network</h1>
-          <p>Широкий спектр IT и дизайн‑услуг: от концепта и дизайна до кода, автоматизации и решений на базе ИИ.</p>
-          <a class="cta" href="#contacts">Связаться</a>
-        </div>
+        <h1>MZA Network</h1>
+        <p>Широкий спектр IT и дизайн‑услуг: от концепта и дизайна до кода, автоматизации и решений на базе ИИ.</p>
+        <a class="cta" href="#contacts">Связаться</a>
       </div>
     </section>
 
@@ -42,19 +37,19 @@
       <h2>Услуги</h2>
       <div class="grid services-grid">
         <article class="card">
-          <h3><i class="svc-icon fa-solid fa-desktop" aria-hidden="true"></i>Дизайн интерфейсов</h3>
+          <h3>Дизайн интерфейсов</h3>
           <p>UI/UX: дизайн сайтов, приложений и продуктов с упором на понятность и конверсию.</p>
         </article>
         <article class="card">
-          <h3><i class="svc-icon fa-solid fa-th-large" aria-hidden="true"></i>Разработка</h3>
+          <h3>Разработка</h3>
           <p>Frontend и интеграция: адаптивная верстка, компоненты и логика на современных технологиях.</p>
         </article>
         <article class="card">
-          <h3><i class="svc-icon fa-solid fa-link" aria-hidden="true"></i>Автоматизация</h3>
+          <h3>Автоматизация</h3>
           <p>Автоматизация рабочих процессов, интеграции, скрипты и инструменты повышения эффективности.</p>
         </article>
         <article class="card">
-          <h3><i class="svc-icon fa-solid fa-robot" aria-hidden="true"></i>Решения на базе ИИ</h3>
+          <h3>Решения на базе ИИ</h3>
           <p>Прототипы и внедрение AI/ML: от чат‑ботов до автоматизированного анализа данных.</p>
         </article>
       </div>
@@ -67,9 +62,9 @@
           <h3>Управление инфраструктурой</h3>
           <p class="ps"><strong>Проблема:</strong> Необходимость надёжного управления контейнеризированными сервисами в само‑хостинговой среде с обеспечением доступности и оперативного реагирования. <strong>Решение:</strong> Централизованная оркестрация с использованием Dockge и мониторинг доступности через Uptime Kuma для мгновенных оповещений и отчётности по SLA.</p>
           <ul class="tech-list">
-            <li><i class="icon fa-solid fa-server" aria-hidden="true"></i>Dockge</li>
-            <li><i class="icon fa-solid fa-desktop" aria-hidden="true"></i>Uptime Kuma</li>
-            <li><i class="icon fa-solid fa-database" aria-hidden="true"></i>Self‑hosted мониторинг и оповещения</li>
+            <li>Dockge</li>
+            <li>Uptime Kuma</li>
+            <li>Self‑hosted мониторинг и оповещения</li>
           </ul>
         </article>
 
@@ -77,9 +72,9 @@
           <h3>Автоматизация рабочих процессов</h3>
           <p class="ps"><strong>Проблема:</strong> Ручная обработка форм и ввод данных приводят к задержкам и ошибкам. <strong>Решение:</strong> Интеграция через n8n: приём форм с сайта, сохранение записей в PostgreSQL (через NocoDB) и мгновенные уведомления в Telegram Bot для быстрой обработки лидов.</p>
           <ul class="tech-list">
-            <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>n8n</li>
-            <li><i class="icon fa-solid fa-database" aria-hidden="true"></i>PostgreSQL (через NocoDB)</li>
-            <li><i class="icon fa-solid fa-robot" aria-hidden="true"></i>Telegram Bot</li>
+            <li>n8n</li>
+            <li>PostgreSQL (через NocoDB)</li>
+            <li>Telegram Bot</li>
           </ul>
         </article>
 
@@ -87,9 +82,9 @@
           <h3>Конфиденциальность и сеть</h3>
           <p class="ps"><strong>Проблема:</strong> Требуется безопасный удалённый доступ и защита данных для распределённых команд. <strong>Решение:</strong> Настройка WireGuard VPN для лёгких, производительных зашифрованных туннелей и удобного управления ключами доступа.</p>
           <ul class="tech-list">
-            <li><i class="icon fa-solid fa-shield-halved" aria-hidden="true"></i>WireGuard</li>
-            <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>Управление ключами</li>
-            <li><i class="icon fa-solid fa-server" aria-hidden="true"></i>Контроль доступа и аудит</li>
+            <li>WireGuard</li>
+            <li>Управление ключами</li>
+            <li>Контроль доступа и аудит</li>
           </ul>
         </article>
 
@@ -97,9 +92,9 @@
           <h3>Панель управления сервисами</h3>
           <p class="ps"><strong>Проблема:</strong> Разрозненные интерфейсы и отсутствие единой точки управления. <strong>Решение:</strong> Централизованный интерфейс на базе Dashy для отображения состояния сервисов, доступа к административным страницам и оперативной навигации.</p>
           <ul class="tech-list">
-            <li><i class="icon fa-solid fa-th-large" aria-hidden="true"></i>Dashy</li>
-            <li><i class="icon fa-solid fa-desktop" aria-hidden="true"></i>Централизованные панели статуса</li>
-            <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>Настраиваемые представления доступа</li>
+            <li>Dashy</li>
+            <li>Централизованные панели статуса</li>
+            <li>Настраиваемые представления доступа</li>
           </ul>
         </article>
       </div>
@@ -107,9 +102,7 @@
 
     <section id="about" class="about container">
       <h2>О нас</h2>
-      <div class="about-grid">
-        <p>Мы выполняем полный цикл работ - от идеи и прототипа до реализации, автоматизации и сопровождения. Берём проекты разной сложности и масштаба.</p>
-      </div>
+      <p>Мы выполняем полный цикл работ - от идеи и прототипа до реализации, автоматизации и сопровождения. Берём проекты разной сложности и масштаба.</p>
     </section>
 
     <section id="contacts" class="contacts container">
@@ -174,14 +167,14 @@
       translations.ru.contacts = function(action){ return ruContactsHtml.replace(/action="[^"]*"/, 'action="'+action+'"'); };
       translations.ru.footer = footerP.innerText;
 
-      // English templates (include Font Awesome icons)
-      translations.en.nav = '\n+          <li><a href="#home"><i class="nav-icon fa-solid fa-house" aria-hidden="true"></i>Home</a></li>\n+          <li><a href="#services"><i class="nav-icon fa-solid fa-desktop" aria-hidden="true"></i>Services</a></li>\n+          <li><a href="#portfolio"><i class="nav-icon fa-solid fa-th-large" aria-hidden="true"></i>Portfolio</a></li>\n+          <li><a href="#about"><i class="nav-icon fa-solid fa-link" aria-hidden="true"></i>About</a></li>\n+          <li><a href="#contacts"><i class="nav-icon fa-solid fa-envelope" aria-hidden="true"></i>Contacts</a></li>\n+        ';
+      // English templates
+      translations.en.nav = '\n          <li><a href="#home">Home</a></li>\n          <li><a href="#services">Services</a></li>\n          <li><a href="#portfolio">Portfolio</a></li>\n          <li><a href="#about">About</a></li>\n          <li><a href="#contacts">Contacts</a></li>\n        ';
 
       translations.en.hero = '<h1>MZA Network</h1>\n        <p>Comprehensive IT and design services: from concept and design to code, automation and AI-driven solutions.</p>\n        <a class="cta" href="#contacts">Contact</a>';
 
-      translations.en.services = '\n+          <article class="card">\n+            <h3><i class="svc-icon fa-solid fa-desktop" aria-hidden="true"></i>Interface Design</h3>\n+            <p>UI/UX design for websites, applications and products focused on clarity and conversion.</p>\n          </article>\n          <article class="card">\n+            <h3><i class="svc-icon fa-solid fa-th-large" aria-hidden="true"></i>Development</h3>\n            <p>Frontend and integration: responsive implementations and components built with modern technologies.</p>\n          </article>\n          <article class="card">\n+            <h3><i class="svc-icon fa-solid fa-link" aria-hidden="true"></i>Automation</h3>\n            <p>Workflow automation, integrations, and scripts to increase operational efficiency.</p>\n          </article>\n          <article class="card">\n+            <h3><i class="svc-icon fa-solid fa-robot" aria-hidden="true"></i>AI Solutions</h3>\n            <p>AI/ML prototyping and deployment: from chatbots to automated data analysis.</p>\n          </article>\n        ';
+      translations.en.services = '\n          <article class="card">\n            <h3>Interface Design</h3>\n            <p>UI/UX design for websites, applications and products focused on clarity and conversion.</p>\n          </article>\n          <article class="card">\n            <h3>Development</h3>\n            <p>Frontend and integration: responsive implementations and components built with modern technologies.</p>\n          </article>\n          <article class="card">\n            <h3>Automation</h3>\n            <p>Workflow automation, integrations, and scripts to increase operational efficiency.</p>\n          </article>\n          <article class="card">\n            <h3>AI Solutions</h3>\n            <p>AI/ML prototyping and deployment: from chatbots to automated data analysis.</p>\n          </article>\n        ';
 
-      translations.en.portfolio = '\n+          <article class="card portfolio-card">\n+            <h3>Infrastructure Management</h3>\n+            <p class="ps"><strong>Problem:</strong> Managing containerised services reliably across self-hosted environments while maintaining high availability and fast incident response. <strong>Solution:</strong> Centralised container orchestration with Dockge and continuous uptime monitoring via Uptime Kuma to provide automated alerting and SLA visibility.</p>\n+            <ul class="tech-list">\n+              <li><i class="icon fa-solid fa-server" aria-hidden="true"></i>Dockge</li>\n+              <li><i class="icon fa-solid fa-desktop" aria-hidden="true"></i>Uptime Kuma</li>\n+              <li><i class="icon fa-solid fa-database" aria-hidden="true"></i>Self-hosted monitoring & alerts</li>\n+            </ul>\n+          </article>\n+\n+          <article class="card portfolio-card">\n+            <h3>Workflow Automation</h3>\n+            <p class="ps"><strong>Problem:</strong> Manual form handling and data entry causing latency and error. <strong>Solution:</strong> Integrated n8n workflows that ingest website form submissions, persist structured records in PostgreSQL (exposed via NocoDB) and dispatch instant Telegram Bot notifications for rapid follow-up.</p>\n+            <ul class="tech-list">\n+              <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>n8n</li>\n+              <li><i class="icon fa-solid fa-database" aria-hidden="true"></i>PostgreSQL (via NocoDB)</li>\n+              <li><i class="icon fa-solid fa-robot" aria-hidden="true"></i>Telegram Bot notifications</li>\n+            </ul>\n+          </article>\n+\n+          <article class="card portfolio-card">\n+            <h3>Privacy & Networking</h3>\n+            <p class="ps"><strong>Problem:</strong> Secure remote access and data confidentiality for distributed teams. <strong>Solution:</strong> Custom WireGuard VPN deployment offering lightweight, high-performance encrypted tunnels and straightforward key management for remote access and inter-service connectivity.</p>\n+            <ul class="tech-list">\n+              <li><i class="icon fa-solid fa-shield-halved" aria-hidden="true"></i>WireGuard</li>\n+              <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>Private key management</li>\n+              <li><i class="icon fa-solid fa-server" aria-hidden="true"></i>Access control and auditability</li>\n+            </ul>\n+          </article>\n+\n+          <article class="card portfolio-card">\n+            <h3>Service Dashboard</h3>\n+            <p class="ps"><strong>Problem:</strong> Fragmented service status and admin interfaces across multiple tools. <strong>Solution:</strong> Centralised management UI using Dashy to surface service health, links, and operational controls in a single, lightweight dashboard.</p>\n+            <ul class="tech-list">\n+              <li><i class="icon fa-solid fa-th-large" aria-hidden="true"></i>Dashy</li>\n+              <li><i class="icon fa-solid fa-desktop" aria-hidden="true"></i>Centralised links & status panels</li>\n+              <li><i class="icon fa-solid fa-link" aria-hidden="true"></i>Customisable access views</li>\n+            </ul>\n+          </article>\n+        ';
+      translations.en.portfolio = '\n          <article class="card portfolio-card">\n            <h3>Infrastructure Management</h3>\n            <p class="ps"><strong>Problem:</strong> Managing containerised services reliably across self-hosted environments while maintaining high availability and fast incident response. <strong>Solution:</strong> Centralised container orchestration with Dockge and continuous uptime monitoring via Uptime Kuma to provide automated alerting and SLA visibility.</p>\n            <ul class="tech-list">\n              <li>Dockge</li>\n              <li>Uptime Kuma</li>\n              <li>Self-hosted monitoring & alerts</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Workflow Automation</h3>\n            <p class="ps"><strong>Problem:</strong> Manual form handling and data entry causing latency and error. <strong>Solution:</strong> Integrated n8n workflows that ingest website form submissions, persist structured records in PostgreSQL (exposed via NocoDB) and dispatch instant Telegram Bot notifications for rapid follow-up.</p>\n            <ul class="tech-list">\n              <li>n8n</li>\n              <li>PostgreSQL (via NocoDB)</li>\n              <li>Telegram Bot notifications</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Privacy & Networking</h3>\n            <p class="ps"><strong>Problem:</strong> Secure remote access and data confidentiality for distributed teams. <strong>Solution:</strong> Custom WireGuard VPN deployment offering lightweight, high-performance encrypted tunnels and straightforward key management for remote access and inter-service connectivity.</p>\n            <ul class="tech-list">\n              <li>WireGuard</li>\n              <li>Private key management</li>\n              <li>Access control and auditability</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Service Dashboard</h3>\n            <p class="ps"><strong>Problem:</strong> Fragmented service status and admin interfaces across multiple tools. <strong>Solution:</strong> Centralised management UI using Dashy to surface service health, links, and operational controls in a single, lightweight dashboard.</p>\n            <ul class="tech-list">\n              <li>Dashy</li>\n              <li>Centralised links & status panels</li>\n              <li>Customisable access views</li>\n            </ul>\n          </article>\n        ';
 
       translations.en.about = 'We deliver end-to-end work - from idea and prototype to implementation, automation and support. We accept projects of varying complexity and scale.';
 
