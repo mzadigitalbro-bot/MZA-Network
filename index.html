@@ -4,10 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MZA Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
   <header>
     <div class="container">
-      <a class="logo" href="#home">MZA Network</a>
+      <a class="logo" href="#home"><i class="fas fa-network-wired"></i> MZA Network</a>
       <nav>
         <ul>
           <li><a href="#home">Главная</a></li>
@@ -29,7 +32,7 @@
       <div class="container">
         <h1>MZA Network</h1>
         <p>Широкий спектр IT и дизайн‑услуг: от концепта и дизайна до кода, автоматизации и решений на базе ИИ.</p>
-        <a class="cta" href="#contacts">Связаться</a>
+        <a class="cta" href="#contacts"><i class="fas fa-paper-plane"></i> Связаться</a>
       </div>
     </section>
 
@@ -37,19 +40,19 @@
       <h2>Услуги</h2>
       <div class="grid services-grid">
         <article class="card">
-          <h3>Дизайн интерфейсов</h3>
+          <h3><i class="fas fa-palette"></i> Дизайн интерфейсов</h3>
           <p>UI/UX: дизайн сайтов, приложений и продуктов с упором на понятность и конверсию.</p>
         </article>
         <article class="card">
-          <h3>Разработка</h3>
+          <h3><i class="fas fa-code"></i> Разработка</h3>
           <p>Frontend и интеграция: адаптивная верстка, компоненты и логика на современных технологиях.</p>
         </article>
         <article class="card">
-          <h3>Автоматизация</h3>
+          <h3><i class="fas fa-robot"></i> Автоматизация</h3>
           <p>Автоматизация рабочих процессов, интеграции, скрипты и инструменты повышения эффективности.</p>
         </article>
         <article class="card">
-          <h3>Решения на базе ИИ</h3>
+          <h3><i class="fas fa-brain"></i> Решения на базе ИИ</h3>
           <p>Прототипы и внедрение AI/ML: от чат‑ботов до автоматизированного анализа данных.</p>
         </article>
       </div>
@@ -59,7 +62,7 @@
       <h2>Портфолио</h2>
       <div class="grid portfolio-grid">
         <article class="card portfolio-card">
-          <h3>Управление инфраструктурой</h3>
+          <h3><i class="fas fa-server"></i> Управление инфраструктурой</h3>
           <p class="ps"><strong>Проблема:</strong> Необходимость надёжного управления контейнеризированными сервисами в само‑хостинговой среде с обеспечением доступности и оперативного реагирования. <strong>Решение:</strong> Централизованная оркестрация с использованием Dockge и мониторинг доступности через Uptime Kuma для мгновенных оповещений и отчётности по SLA.</p>
           <ul class="tech-list">
             <li>Dockge</li>
@@ -69,7 +72,7 @@
         </article>
 
         <article class="card portfolio-card">
-          <h3>Автоматизация рабочих процессов</h3>
+          <h3><i class="fas fa-project-diagram"></i> Автоматизация рабочих процессов</h3>
           <p class="ps"><strong>Проблема:</strong> Ручная обработка форм и ввод данных приводят к задержкам и ошибкам. <strong>Решение:</strong> Интеграция через n8n: приём форм с сайта, сохранение записей в PostgreSQL (через NocoDB) и мгновенные уведомления в Telegram Bot для быстрой обработки лидов.</p>
           <ul class="tech-list">
             <li>n8n</li>
@@ -79,7 +82,7 @@
         </article>
 
         <article class="card portfolio-card">
-          <h3>Конфиденциальность и сеть</h3>
+          <h3><i class="fas fa-user-shield"></i> Конфиденциальность и сеть</h3>
           <p class="ps"><strong>Проблема:</strong> Требуется безопасный удалённый доступ и защита данных для распределённых команд. <strong>Решение:</strong> Настройка WireGuard VPN для лёгких, производительных зашифрованных туннелей и удобного управления ключами доступа.</p>
           <ul class="tech-list">
             <li>WireGuard</li>
@@ -89,7 +92,7 @@
         </article>
 
         <article class="card portfolio-card">
-          <h3>Панель управления сервисами</h3>
+          <h3><i class="fas fa-tachometer-alt"></i> Панель управления сервисами</h3>
           <p class="ps"><strong>Проблема:</strong> Разрозненные интерфейсы и отсутствие единой точки управления. <strong>Решение:</strong> Централизованный интерфейс на базе Dashy для отображения состояния сервисов, доступа к административным страницам и оперативной навигации.</p>
           <ul class="tech-list">
             <li>Dashy</li>
@@ -124,10 +127,10 @@
         </div>
         <div class="form-row">
           <label for="message">Сообщение*</label>
-          <textarea style="resize: none;" rows="10" cols="50" id="message" name="message" rows="5" required></textarea>
+          <textarea style="resize: none;" id="message" name="message" rows="10" cols="50" required></textarea>
         </div>
         <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-        <button type="submit">Отправить</button>
+        <button type="submit"><i class="fas fa-envelope"></i> Отправить</button>
       </form>
     </section>
   </main>
@@ -137,6 +140,7 @@
       <p>© 2026 MZA Network. Все права защищены.</p>
     </div>
   </footer>
+
   <script>
     window.onRecaptchaLoad = function() {
       window.recaptchaReady = true;
@@ -157,28 +161,27 @@
       var formAction = contactsSection.querySelector('form')?.getAttribute('action') || '';
 
       var translations = { en: {} , ru: {} };
-      // capture current DOM as Russian source
+      
       translations.ru.nav = navUl.innerHTML;
       translations.ru.hero = heroCont.innerHTML;
       translations.ru.services = servicesGrid.innerHTML;
       translations.ru.portfolio = portfolioGrid.innerHTML;
       translations.ru.about = aboutP.innerHTML;
-      var ruContactsHtml = contactsSection.innerHTML; // preserve original Russian contacts markup
+      var ruContactsHtml = contactsSection.innerHTML;
       translations.ru.contacts = function(action){ return ruContactsHtml.replace(/action="[^"]*"/, 'action="'+action+'"'); };
       translations.ru.footer = footerP.innerText;
  
-      // English templates
-      translations.en.nav = '\n          <li><a href="#home">Home</a></li>\n          <li><a href="#services">Services</a></li>\n          <li><a href="#portfolio">Portfolio</a></li>\n          <li><a href="#about">About</a></li>\n          <li><a href="#contacts">Contacts</a></li>\n        ';
+      translations.en.nav = '<li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#contacts">Contacts</a></li>';
 
-      translations.en.hero = '<h1>MZA Network</h1>\n        <p>Comprehensive IT and design services: from concept and design to code, automation and AI-driven solutions.</p>\n        <a class="cta" href="#contacts">Contact</a>';
+      translations.en.hero = '<h1>MZA Network</h1><p>Comprehensive IT and design services: from concept and design to code, automation and AI-driven solutions.</p><a class="cta" href="#contacts"><i class="fas fa-paper-plane"></i> Contact</a>';
 
-      translations.en.services = '\n          <article class="card">\n            <h3>Interface Design</h3>\n            <p>UI/UX design for websites, applications and products focused on clarity and conversion.</p>\n          </article>\n          <article class="card">\n            <h3>Development</h3>\n            <p>Frontend and integration: responsive implementations and components built with modern technologies.</p>\n          </article>\n          <article class="card">\n            <h3>Automation</h3>\n            <p>Workflow automation, integrations, and scripts to increase operational efficiency.</p>\n          </article>\n          <article class="card">\n            <h3>AI Solutions</h3>\n            <p>AI/ML prototyping and deployment: from chatbots to automated data analysis.</p>\n          </article>\n        ';
+      translations.en.services = '<article class="card"><h3><i class="fas fa-palette"></i> Interface Design</h3><p>UI/UX design for websites, applications and products focused on clarity and conversion.</p></article><article class="card"><h3><i class="fas fa-code"></i> Development</h3><p>Frontend and integration: responsive implementations and components built with modern technologies.</p></article><article class="card"><h3><i class="fas fa-robot"></i> Automation</h3><p>Workflow automation, integrations, and scripts to increase operational efficiency.</p></article><article class="card"><h3><i class="fas fa-brain"></i> AI Solutions</h3><p>AI/ML prototyping and deployment: from chatbots to automated data analysis.</p></article>';
 
-      translations.en.portfolio = '\n          <article class="card portfolio-card">\n            <h3>Infrastructure Management</h3>\n            <p class="ps"><strong>Problem:</strong> Managing containerised services reliably across self-hosted environments while maintaining high availability and fast incident response. <strong>Solution:</strong> Centralised container orchestration with Dockge and continuous uptime monitoring via Uptime Kuma to provide automated alerting and SLA visibility.</p>\n            <ul class="tech-list">\n              <li>Dockge</li>\n              <li>Uptime Kuma</li>\n              <li>Self-hosted monitoring & alerts</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Workflow Automation</h3>\n            <p class="ps"><strong>Problem:</strong> Manual form handling and data entry causing latency and error. <strong>Solution:</strong> Integrated n8n workflows that ingest website form submissions, persist structured records in PostgreSQL (exposed via NocoDB) and dispatch instant Telegram Bot notifications for rapid follow-up.</p>\n            <ul class="tech-list">\n              <li>n8n</li>\n              <li>PostgreSQL (via NocoDB)</li>\n              <li>Telegram Bot notifications</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Privacy & Networking</h3>\n            <p class="ps"><strong>Problem:</strong> Secure remote access and data confidentiality for distributed teams. <strong>Solution:</strong> Custom WireGuard VPN deployment offering lightweight, high-performance encrypted tunnels and straightforward key management for remote access and inter-service connectivity.</p>\n            <ul class="tech-list">\n              <li>WireGuard</li>\n              <li>Private key management</li>\n              <li>Access control and auditability</li>\n            </ul>\n          </article>\n\n          <article class="card portfolio-card">\n            <h3>Service Dashboard</h3>\n            <p class="ps"><strong>Problem:</strong> Fragmented service status and admin interfaces across multiple tools. <strong>Solution:</strong> Centralised management UI using Dashy to surface service health, links, and operational controls in a single, lightweight dashboard.</p>\n            <ul class="tech-list">\n              <li>Dashy</li>\n              <li>Centralised links & status panels</li>\n              <li>Customisable access views</li>\n            </ul>\n          </article>\n        ';
+      translations.en.portfolio = '<article class="card portfolio-card"><h3><i class="fas fa-server"></i> Infrastructure Management</h3><p class="ps"><strong>Problem:</strong> Managing containerised services reliably across self-hosted environments while maintaining high availability and fast incident response. <strong>Solution:</strong> Centralised container orchestration with Dockge and continuous uptime monitoring via Uptime Kuma to provide automated alerting and SLA visibility.</p><ul class="tech-list"><li>Dockge</li><li>Uptime Kuma</li><li>Self-hosted monitoring & alerts</li></ul></article><article class="card portfolio-card"><h3><i class="fas fa-project-diagram"></i> Workflow Automation</h3><p class="ps"><strong>Problem:</strong> Manual form handling and data entry causing latency and error. <strong>Solution:</strong> Integrated n8n workflows that ingest website form submissions, persist structured records in PostgreSQL (exposed via NocoDB) and dispatch instant Telegram Bot notifications for rapid follow-up.</p><ul class="tech-list"><li>n8n</li><li>PostgreSQL (via NocoDB)</li><li>Telegram Bot notifications</li></ul></article><article class="card portfolio-card"><h3><i class="fas fa-user-shield"></i> Privacy & Networking</h3><p class="ps"><strong>Problem:</strong> Secure remote access and data confidentiality for distributed teams. <strong>Solution:</strong> Custom WireGuard VPN deployment offering lightweight, high-performance encrypted tunnels and straightforward key management for remote access and inter-service connectivity.</p><ul class="tech-list"><li>WireGuard</li><li>Private key management</li><li>Access control and auditability</li></ul></article><article class="card portfolio-card"><h3><i class="fas fa-tachometer-alt"></i> Service Dashboard</h3><p class="ps"><strong>Problem:</strong> Fragmented service status and admin interfaces across multiple tools. <strong>Solution:</strong> Centralised management UI using Dashy to surface service health, links, and operational controls in a single, lightweight dashboard.</p><ul class="tech-list"><li>Dashy</li><li>Centralised links & status panels</li><li>Customisable access views</li></ul></article>';
 
       translations.en.about = 'We deliver end-to-end work - from idea and prototype to implementation, automation and support. We accept projects of varying complexity and scale.';
 
-      translations.en.contacts = function(action){ return '\n        <h2>Contacts</h2>\n        <p>Fill the form and we will get back to you shortly.</p>\n        <p>*Required fields</p>\n        <form id="contactForm" action="'+action+'" method="POST">\n          <div class="form-row">\n            <label for="name">Name*</label>\n            <input id="name" name="name" type="text" required>\n          </div>\n          <div class="form-row">\n            <label for="phone">Phone</label>\n            <input id="phone" name="phone" type="text">\n          </div>\n          <div class="form-row">\n            <label for="email">Email*</label>\n            <input id="email" name="email" type="email" required>\n          </div>\n          <div class="form-row">\n            <label for="message">Message*</label>\n            <textarea style="resize: none;" rows="10" cols="50" id="message" name="message" rows="5" required></textarea>\n          </div>\n          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">\n          <button type="submit">Send</button>\n        </form>\n      '; };
+      translations.en.contacts = function(action){ return '<h2>Contacts</h2><p>Fill the form and we will get back to you shortly.</p><p>*Required fields</p><form id="contactForm" action="'+action+'" method="POST"><div class="form-row"><label for="name">Name*</label><input id="name" name="name" type="text" required></div><div class="form-row"><label for="phone">Phone</label><input id="phone" name="phone" type="text"></div><div class="form-row"><label for="email">Email*</label><input id="email" name="email" type="email" required></div><div class="form-row"><label for="message">Message*</label><textarea style="resize: none;" id="message" name="message" rows="10" cols="50" required></textarea></div><input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"><button type="submit"><i class="fas fa-envelope"></i> Send</button></form>'; };
 
       translations.en.footer = '© 2026 MZA Network. All rights reserved.';
 
@@ -208,7 +211,6 @@
     })();
   </script>
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcA7EcsAAAAAHwn5rLB2n9YemqWFU2Vo0Y3sTGL&onload=onRecaptchaLoad"></script>
-
   <script src="js/main.js"></script>
 </body>
 </html>
